@@ -1,6 +1,7 @@
-@import "url('bootstrap/css/bootstrap.css')",
-"url('bootstrap/css/bootstrap-responsive.css')";
+// @import "url('bootstrap/css/bootstrap.css')",
+// "url('bootstrap/css/bootstrap-responsive.css')";
 
+// vars
 $fg                : #ffc107;
 $bg                : #009688;
 $pi                : 3.14;
@@ -40,8 +41,6 @@ body {
 
 // @import "compass/css3";
 
-// vars
-
 // config
 
 body {
@@ -76,13 +75,17 @@ h1 {
 }
 
 .hamburger {
+	$width:25px;
+  $height:3px;
 	display     : block;
 	position    : absolute;
 	top         : 50%;
 	left        : 50%;
 	width       : $width;
 	height      : $height;
-	margin-left : -$width/2 margin-top:-$height/2 transition:transform 200ms;
+	margin-left : -$width/2;
+	margin-top:-$height/2;
+	transition:transform 200ms;
 	background  : white;
 	$width      : 25px;
 	$height     : 3px;
@@ -144,6 +147,7 @@ h1 {
 		}
 	}
 
+
 	.menu-open-button {
 		@extend                  					    %ball;
 		z-index                    : 2;
@@ -156,6 +160,7 @@ h1 {
 	.menu-open-button:hover {
 		transform : scale(1.2,1.2) translate3d(0,0,0);
 	}
+
 
 	.menu-open:checked+.menu-open-button {
 		transform                  : scale(0.8,0.8) translate3d(0,0,0);
