@@ -1,126 +1,216 @@
 @import url("bootstrap/css/bootstrap.css");
 @import url("bootstrap/css/bootstrap-responsive.css");
-body {
-  padding-top: 60px;
-  padding-bottom: 40px; }
+#menu-wrapper .menu {
+				filter: url("#goo");
+}
+
+#menu-wrapper .menu .menu-item, #menu-wrapper .menu .menu-open-button {
+				display: flex;
+				position: absolute;
+				bottom: 0;
+				width: 60px;
+				height: 60px;
+				margin-left: -40px;
+				color: white;
+				border-radius: 100%;
+				background: #ffc107;
+				text-align: center;
+				align-items: center;
+				justify-content: center;
+				line-height: 80px;
+				transform: translate3d(0, 0, 0);
+				transition: transform ease-out 200ms;
+}
 
 body {
-  background: #009688;
-  color: white;
-  text-align: center; }
+				padding-top: 60px;
+				padding-bottom: 40px;
+}
+
+body {
+				color: white;
+				background: #009688;
+				text-align: center;
+}
 
 a {
-  color: inherit; }
+				color: inherit;
+}
 
-h1, h2, h3, h4 {
-  margin: 0;
-  margin-bottom: 10px;
-  margin-top: 10px; }
+h1,
+h2,
+h3,
+h4 {
+				margin: 10px 0;
+}
 
 h1 {
-  font-size: 3em; }
-
-#menu-wrapper .menu {
-  filter: url("#shadowed-goo"); }
-
-.menu-item, #menu-wrapper .menu-open-button {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 0;
-  align-items: center;
-  background: #ffc107;
-  border-radius: 100%;
-  width: 80px;
-  height: 80px;
-  margin-left: -40px;
-  color: white;
-  text-align: center;
-  line-height: 80px;
-  transform: translate3d(0, 0, 0);
-  transition: transform ease-out 200ms; }
-
-.menu-open {
-  display: none; }
-
-.hamburger {
-  width: 25px;
-  height: 3px;
-  background: white;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -12.5px;
-  margin-top: -1.5px;
-  transition: transform 200ms; }
-
-.hamburger-1 {
-  transform: translate3d(0, -8px, 0); }
-
-.hamburger-2 {
-  transform: translate3d(0, 0, 0); }
-
-.hamburger-3 {
-  transform: translate3d(0, 8px, 0); }
-
-.menu-open:checked + .menu-open-button .hamburger-1 {
-  transform: translate3d(0, 0, 0) rotate(45deg); }
-.menu-open:checked + .menu-open-button .hamburger-2 {
-  transform: translate3d(0, 0, 0) scale(0.1, 1); }
-.menu-open:checked + .menu-open-button .hamburger-3 {
-  transform: translate3d(0, 0, 0) rotate(-45deg); }
+				font-size: 3em;
+}
 
 #menu-wrapper {
-  height: 100vh; }
-  #menu-wrapper .menu {
-    position: absolute;
-    top: 0px;
-    right: 3%;
-    margin-left: -80px;
-    padding-top: 20px;
-    padding-left: 80px;
-    width: 150px;
-    height: 65%;
-    box-sizing: border-box;
-    font-size: 20px;
-    text-align: left; }
-  #menu-wrapper .menu-item:hover {
-    background: white;
-    color: #ffc107; }
-  #menu-wrapper .menu-item:nth-child(3) {
-    transition-duration: 180ms; }
-  #menu-wrapper .menu-item:nth-child(4) {
-    transition-duration: 180ms; }
-  #menu-wrapper .menu-item:nth-child(5) {
-    transition-duration: 180ms; }
-  #menu-wrapper .menu-item:nth-child(6) {
-    transition-duration: 180ms; }
-  #menu-wrapper .menu-open-button {
-    z-index: 2;
-    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transition-duration: 400ms;
-    transform: scale(1.1, 1.1) translate3d(0, 0, 0);
-    cursor: pointer; }
-  #menu-wrapper .menu-open-button:hover {
-    transform: scale(1.2, 1.2) translate3d(0, 0, 0); }
-  #menu-wrapper .menu-open:checked + .menu-open-button {
-    transition-timing-function: linear;
-    transition-duration: 200ms;
-    transform: scale(0.8, 0.8) translate3d(0, 0, 0); }
-  #menu-wrapper .menu-open:checked ~ .menu-item {
-    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
-    #menu-wrapper .menu-open:checked ~ .menu-item:nth-child(3) {
-      transition-duration: 170ms;
-      transform: translate3d(0, -80px, 0); }
-    #menu-wrapper .menu-open:checked ~ .menu-item:nth-child(4) {
-      transition-duration: 250ms;
-      transform: translate3d(0, -160px, 0); }
-    #menu-wrapper .menu-open:checked ~ .menu-item:nth-child(5) {
-      transition-duration: 330ms;
-      transform: translate3d(0, -240px, 0); }
-    #menu-wrapper .menu-open:checked ~ .menu-item:nth-child(6) {
-      transition-duration: 410ms;
-      transform: translate3d(0, -320px, 0); }
+				position: fixed;
+				top: 0;
+				right: 0;
+				width: 25%;
+				height: 100vh;
+}
 
-/*# sourceMappingURL=style.css.map */
+#menu-wrapper .menu {
+				box-sizing: border-box;
+				position: absolute;
+				right: -20px;
+				bottom: 25px;
+				width: 150px;
+				height: 90%;
+				margin-left: -80px;
+				padding-top: 20px;
+				padding-left: 80px;
+				text-align: left;
+				font-size: 20px;
+}
+
+#menu-wrapper .menu .menu-item:hover {
+				color: #ffc107;
+				background: white;
+				text-decoration: none !important;
+}
+
+#menu-wrapper .menu .menu-item:nth-child(3) {
+				transition-duration: 180ms;
+}
+
+#menu-wrapper .menu .menu-item:nth-child(4) {
+				transition-duration: 180ms;
+}
+
+#menu-wrapper .menu .menu-item:nth-child(5) {
+				transition-duration: 180ms;
+}
+
+#menu-wrapper .menu .menu-item:nth-child(6) {
+				transition-duration: 180ms;
+}
+
+#menu-wrapper .menu .menu-item:nth-child(7) {
+				transition-duration: 180ms;
+}
+
+#menu-wrapper .menu .menu-item:nth-child(8) {
+				transition-duration: 180ms;
+}
+
+#menu-wrapper .menu .menu-item:nth-child(9) {
+				transition-duration: 180ms;
+}
+
+#menu-wrapper .menu .menu-item .option-name {
+				position: absolute;
+				text-align: right;
+				right: 60px;
+				top: 0;
+				min-width: 200px;
+				display: none;
+}
+
+#menu-wrapper .menu .menu-open {
+				display: none;
+}
+
+#menu-wrapper .menu .menu-open:checked + .menu-open-button {
+				transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+				transition-duration: 200ms;
+				transition-timing-function: linear;
+}
+
+#menu-wrapper .menu .menu-open:checked + .menu-open-button .hamburger-1 {
+				transform: translate3d(0, 0, 0) rotate(45deg);
+}
+
+#menu-wrapper .menu .menu-open:checked + .menu-open-button .hamburger-2 {
+				transform: translate3d(0, 0, 0) scale(0.1, 1);
+}
+
+#menu-wrapper .menu .menu-open:checked + .menu-open-button .hamburger-3 {
+				transform: translate3d(0, 0, 0) rotate(-45deg);
+}
+
+#menu-wrapper .menu .menu-open:checked ~ .menu-item {
+				transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#menu-wrapper .menu .menu-open:checked ~ .menu-item:nth-child(3) {
+				transform: translate3d(0, -65px, 0);
+				transition-duration: 170ms;
+}
+
+#menu-wrapper .menu .menu-open:checked ~ .menu-item:nth-child(4) {
+				transform: translate3d(0, -130px, 0);
+				transition-duration: 250ms;
+}
+
+#menu-wrapper .menu .menu-open:checked ~ .menu-item:nth-child(5) {
+				transform: translate3d(0, -195px, 0);
+				transition-duration: 330ms;
+}
+
+#menu-wrapper .menu .menu-open:checked ~ .menu-item:nth-child(6) {
+				transform: translate3d(0, -260px, 0);
+				transition-duration: 410ms;
+}
+
+#menu-wrapper .menu .menu-open:checked ~ .menu-item:nth-child(7) {
+				transform: translate3d(0, -325px, 0);
+				transition-duration: 490ms;
+}
+
+#menu-wrapper .menu .menu-open:checked ~ .menu-item:nth-child(8) {
+				transform: translate3d(0, -390px, 0);
+				transition-duration: 570ms;
+}
+
+#menu-wrapper .menu .menu-open:checked ~ .menu-item:nth-child(9) {
+				transform: translate3d(0, -455px, 0);
+				transition-duration: 650ms;
+}
+
+#menu-wrapper .menu .menu-open:checked ~ .menu-item .option-name {
+				display: inline;
+}
+
+#menu-wrapper .menu .menu-open-button {
+				z-index: 2;
+				transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+				transition-duration: 400ms;
+				transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				cursor: pointer;
+}
+
+#menu-wrapper .menu .menu-open-button:hover {
+				transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+}
+
+#menu-wrapper .menu .menu-open-button .hamburger {
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 25px;
+				height: 3px;
+				margin-top: -1.5px;
+				margin-left: -12.5px;
+				background: white;
+				transition: transform 200ms;
+}
+
+#menu-wrapper .menu .menu-open-button .hamburger-1 {
+				transform: translate3d(0, -8px, 0);
+}
+
+#menu-wrapper .menu .menu-open-button .hamburger-2 {
+				transform: translate3d(0, 0, 0);
+}
+
+#menu-wrapper .menu .menu-open-button .hamburger-3 {
+				transform: translate3d(0, 8px, 0);
+}

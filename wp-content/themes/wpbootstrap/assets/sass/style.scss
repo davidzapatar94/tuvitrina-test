@@ -1,179 +1,195 @@
-// @import "url('bootstrap/css/bootstrap.css')",
-// "url('bootstrap/css/bootstrap-responsive.css')";
-
-// vars
-$fg                : #ffc107;
-$bg                : #009688;
-$pi                : 3.14;
-$menu-items        : 4;
-$open-distance     : 105px;
-$opening-angle     : $pi*2;
-$hamburger-spacing : 8px;
+@import url("bootstrap/css/bootstrap.css");
+@import url("bootstrap/css/bootstrap-responsive.css"); // vars
+$fg: #ffc107;
+$bg: #009688;
+$pi: 3.14;
+$menu-items: 7;
+$open-distance: 105px;
+$opening-angle: $pi*2;
+$hamburger-spacing: 8px;
 
 %goo {
-	filter : url('#goo');
+	filter : url(  '#goo');
 	// debug
 	// background:rgba(255,0,0,0.2);
 }
 
 %ball {
-	display         : flex;
-	position        : absolute;
-	bottom          : 0;
-	width           : 80px;
-	height          : 80px;
-	margin-left     : -40px;
-	color           : white;
-	border-radius   : 100%;
-	background      : $fg;
-	text-align      : center;
-	align-items     : center;
-	justify-content : center;
-	line-height     : 80px;
-	transform       : translate3d(0,0,0);
-	transition      : transform ease-out 200ms;
+	display: flex;
+	position: absolute;
+	bottom: 0;
+	width: 60px;
+	height: 60px;
+	margin-left: -40px;
+	color: white;
+	border-radius: 100%;
+	background: $fg;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	line-height: 80px;
+	transform: translate3d(0,0,0);
+	transition: transform ease-out 200ms;
 }
+// vars
 
 body {
-	padding-top    : 60px;
-	padding-bottom : 40px;
+	padding-top: 60px;
+	padding-bottom: 40px;
 }
-
 // @import "compass/css3";
-
 // config
 
 body {
-	color      : white;
-	background : $bg;
-	text-align : center;
+	color: white;
+	background: $bg;
+	text-align: center;
 }
 
 a {
-	color : inherit;
+	color: inherit;
 }
 
 h1,
 h2,
 h3,
 h4 {
-	margin        : 0;
-	margin-top    : 10px;
-	margin-bottom : 10px;
+	margin: 10px 0;
 }
 
 h1 {
-	font-size : 3em;
+	font-size: 3em;
 }
 
-.menu-open {
-	display : none;
-}
 
-.menu-item {
-	@extend %ball;
-}
-
-.hamburger {
-	$width:25px;
-  $height:3px;
-	display     : block;
-	position    : absolute;
-	top         : 50%;
-	left        : 50%;
-	width       : $width;
-	height      : $height;
-	margin-left : -$width/2;
-	margin-top:-$height/2;
-	transition:transform 200ms;
-	background  : white;
-	$width      : 25px;
-	$height     : 3px;
-}
-
-.hamburger-1 {
-	transform : translate3d(0,-$hamburger-spacing,0);
-}
-
-.hamburger-2 {
-	transform : translate3d(0,0,0);
-}
-
-.hamburger-3 {
-	transform : translate3d(0,$hamburger-spacing,0);
-}
-
-.menu-open:checked+.menu-open-button {
-	.hamburger-1 {
-		transform : translate3d(0,0,0) rotate(45deg);
-	}
-
-	.hamburger-2 {
-		transform : translate3d(0,0,0) scale(0.1,1);
-	}
-
-	.hamburger-3 {
-		transform : translate3d(0,0,0) rotate(-45deg);
-	}
-}
 
 #menu-wrapper {
-	height : 100vh;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 25%;
+	height: 100vh;
 
 	.menu {
-		@extend        %goo;
-		box-sizing   : border-box;
-		position     : absolute;
-		top          : 0px;
-		right        : 3%;
-		width        : 150px;
-		height       : 65%;
-		margin-left  : -80px;
-		padding-top  : 20px;
-		padding-left : 80px;
-		text-align   : left;
-		font-size    : 20px;
-	}
+		@extend %goo;
+		box-sizing: border-box;
+		position: absolute;
+		right: -20px;
+		bottom: 25px;
+		width: 150px;
+		height: 90%;
+		margin-left: -80px;
+		padding-top: 20px;
+		padding-left: 80px;
+		text-align: left;
+		font-size: 20px;
 
-	.menu-item {
-		&:hover {
-			color      : $fg;
-			background : white;
-		}
-		@for $i from 1 through $menu-items {
-			&:nth-child(#{$i+2}) {
-				transition-duration : 180ms;
+		.menu-item {
+			@extend %ball;
+
+			&:hover {
+				color: $fg;
+				background: white;
+				text-decoration: none !important;
+			}
+			@for $i from 1 through $menu-items {
+				&:nth-child(#{$i+2}) {
+					transition-duration: 180ms;
+				}
+			}
+
+			.option-name{
+				position: absolute;
+				text-align: right;
+				right: 60px;
+				top: 0;
+				min-width: 200px;
+				display: none;
 			}
 		}
-	}
+
+		//Checkbox
+		.menu-open {
+			display: none;
+		}
+
+		.menu-open:checked{
+
+			& + .menu-open-button {
+				transform: scale(0.8,0.8) translate3d(0,0,0);
+				transition-duration: 200ms;
+				transition-timing-function: linear;
+
+				.hamburger-1 {
+					transform: translate3d(0,0,0) rotate(45deg);
+				}
+
+				.hamburger-2 {
+					transform: translate3d(0,0,0) scale(0.1,1);
+				}
+
+				.hamburger-3 {
+					transform: translate3d(0,0,0) rotate(-45deg);
+				}
+			}
+
+			& ~ .menu-item {
+				transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+				@for $i from 1 through $menu-items {
+					&:nth-child(#{$i+2}) {
+						transform: translate3d(0,(65px*$i*-1),0);
+						transition-duration: 90ms+(80ms*$i);
+					}
+				}
+
+				.option-name{
+					display: inline;
+				}
+			}
+		}
 
 
-	.menu-open-button {
-		@extend                  					    %ball;
-		z-index                    : 2;
-		transform                  : scale(1.1,1.1) translate3d(0,0,0);
-		transition-duration        : 400ms;
-		transition-timing-function : cubic-bezier(0.175, 0.885, 0.320, 1.275);
-		cursor                     : pointer;
-	}
-
-	.menu-open-button:hover {
-		transform : scale(1.2,1.2) translate3d(0,0,0);
-	}
 
 
-	.menu-open:checked+.menu-open-button {
-		transform                  : scale(0.8,0.8) translate3d(0,0,0);
-		transition-duration        : 200ms;
-		transition-timing-function : linear;
-	}
+		.menu-open-button {
+			@extend %ball;
+			z-index: 2;
+			transform: scale(1.1,1.1) translate3d(0,0,0);
+			transition-duration: 400ms;
+			transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+			cursor: pointer;
 
-	.menu-open:checked~.menu-item {
-		transition-timing-function : cubic-bezier(0.165, 0.840, 0.440, 1.000);
-		@for $i from 1 through $menu-items {
-			&:nth-child(#{$i+2}) {
-				transform           : translate3d(0,(80px*$i*-1),0);
-				transition-duration : 90ms+(80ms*$i);
+			&:hover {
+				transform: scale(1.2,1.2) translate3d(0,0,0);
+			}
+
+			.hamburger {
+				$width: 25px;
+				$height: 3px;
+				$width: 25px;
+				$height: 3px;
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: $width;
+				height: $height;
+				margin-top: -$height/2;
+				margin-left: -$width/2;
+				background: white;
+				transition: transform 200ms;
+			}
+
+			.hamburger-1 {
+				transform: translate3d(0,-$hamburger-spacing,0);
+			}
+
+			.hamburger-2 {
+				transform: translate3d(0,0,0);
+			}
+
+			.hamburger-3 {
+				transform: translate3d(0,$hamburger-spacing,0);
 			}
 		}
 	}
