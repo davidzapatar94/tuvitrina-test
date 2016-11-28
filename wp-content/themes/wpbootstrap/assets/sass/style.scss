@@ -1,12 +1,26 @@
 @import url("bootstrap/css/bootstrap.css");
-@import url("bootstrap/css/bootstrap-responsive.css"); // vars
-$fg: #ffc107;
+@import url("bootstrap/css/bootstrap-responsive.css");
+// vars
+$fg: #ffc137;
 $bg: #009688;
 $pi: 3.14;
 $menu-items: 7;
 $open-distance: 105px;
 $opening-angle: $pi*2;
 $hamburger-spacing: 8px;
+$transparent-black: rgba(0,0,0,0.6);
+$max-childs: 20;
+
+// @keyframes expand {
+// 	from {
+// 		position: absolute;
+// 		right: 0;
+// 	}
+// 	to{
+// 		position: initial;
+// 	}
+// }
+
 
 %goo {
 	filter : url(  '#goo');
@@ -31,7 +45,7 @@ $hamburger-spacing: 8px;
 	transform: translate3d(0,0,0);
 	transition: transform ease-out 200ms;
 }
-// vars
+
 
 body {
 	padding-top: 60px;
@@ -61,14 +75,20 @@ h1 {
 	font-size: 3em;
 }
 
-
+.negro-transparentoso{
+	background-color: $transparent-black !important;
+	visibility: visible !important;
+}
 
 #menu-wrapper {
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: 25%;
+	width: 100%;
 	height: 100vh;
+	background: transparent;
+	visibility: hidden;
+	transition: all 0.4s ease-in;
 
 	.menu {
 		@extend %goo;
@@ -83,6 +103,7 @@ h1 {
 		padding-left: 80px;
 		text-align: left;
 		font-size: 20px;
+		visibility: visible;
 
 		.menu-item {
 			@extend %ball;
@@ -104,7 +125,34 @@ h1 {
 				right: 60px;
 				top: 0;
 				min-width: 200px;
-				display: none;
+				visibility: hidden;
+				@for $i from 1 through $menu-items {
+					&:nth-child(#{$i}) {
+						span{
+							@for $j from 1 through $max-childs {
+								&:nth-child(#{$j}) {
+									transition-property: opacity;
+									transition-duration: 0.1s;
+									transition-timing-function: ease;
+									transition-delay: ($j/30*-1)+1s;
+									opacity: 0;
+								}
+							}
+						}
+					}
+				}
+
+				// span{
+				// 	@for $i from 1 through $max-childs {
+				// 		&:nth-child(#{$i}) {
+				// 			transition-property: opacity;
+				// 			transition-duration: 0.1s;
+				// 			transition-timing-function: ease;
+				// 			transition-delay: ($i/10*-1)+2s;
+				// 			opacity: 0;
+				// 		}
+				// 	}
+				// }
 			}
 		}
 
@@ -114,6 +162,10 @@ h1 {
 		}
 
 		.menu-open:checked{
+
+			& #menu-wrapper{
+				background: rgba(0,0,0,0.6) !important;
+			}
 
 			& + .menu-open-button {
 				transform: scale(0.8,0.8) translate3d(0,0,0);
@@ -144,6 +196,14 @@ h1 {
 
 				.option-name{
 					display: inline;
+					visibility: visible;
+					span{
+						opacity: 1!important;
+						transition-property: opacity;
+						transition-duration: 0s;
+						transition-timing-function: ease;
+						transition-delay: 0;
+					}
 				}
 			}
 		}
