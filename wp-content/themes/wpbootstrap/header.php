@@ -52,44 +52,38 @@
 
       <a href="#" class="menu-item">
         <i class="fa fa-home">
-          <span id="numero_elementos"></span>
-          <span class="option-name">nombre de la opcion</span>
+        
+          <span class="option-name">Inicio</span>
         </i>
       </a>
       <a href="#" class="menu-item">
         <i class="fa fa-cog">
-          <span id="numero_elementos"></span>
-          <span class="option-name">nombre de la opcion</span>
+          <span class="option-name">Panel de control</span>
         </i>
       </a>
       <a href="#" class="menu-item">
         <i class="fa fa-times-circle">
-          <span id="numero_elementos"></span>
-          <span class="option-name">nombre de la opcion</span>
+          <span class="option-name">Cerrar sesión</span>
         </i>
       </a>
       <a href="#" class="menu-item">
         <i class="fa fa-pencil">
-          <span id="numero_elementos"></span>
-          <span class="option-name">nombre de la opcion</span>
+          <span class="option-name">Blog</span>
         </i>
       </a>
       <a href="#" class="menu-item">
         <i class="fa fa-rocket">
-          <span id="numero_elementos"></span>
-          <span class="option-name">nombre de la opcion</span>
+          <span class="option-name">¿Quienes somos?</span>
         </i>
       </a>
       <a href="#" class="menu-item">
         <i class="fa fa-plus">
-          <span id="numero_elementos"></span>
-          <span class="option-name">nombre de la opcion</span>
+          <span class="option-name">Categoriás</span>
         </i>
       </a>
       <a href="#" class="menu-item">
         <i class="fa fa-check-square">
-          <span id="numero_elementos"></span>
-          <span class="option-name">nombre de la opcion</span>
+          <span class="option-name">Categoriás</span>
         </i>
       </a>
 

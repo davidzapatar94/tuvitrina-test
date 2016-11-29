@@ -4,4 +4,6 @@ jQuery(document).ready(function($){
   });
 
   $(".option-name").lettering();
+
+  console.log($(".menu:nth-child(1)"));
 });// end document ready
